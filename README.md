@@ -1,7 +1,7 @@
 μDBug
 ======
 
-The μDBug (pronounced Mud-Bug, an epony of the freshwater crustacean)
+The μDBug (pronounced Mud-Bug, an eponym of the freshwater crustacean)
 is a logic database or knowledge store designed with modern
 considerations.  The project builds from ideas first explored in the
 semantic-web but incorporates past learning from logic programming
@@ -28,8 +28,10 @@ A μDBug *predicate* is the building block of the way we express
 relationships. A predicate ``p(A,B,...,C)`` expresses that the fact
 ``p`` holds, yielding a JSON stream with the free variables ``A...C``
 as names binding to the respective values for which the query is true
-like so: ``{'A' : v_a , ... 'C' : v_c}``. If the query is not
-satisfiable, there will be nothing returned.
+like so: ``{'prefix:A' : v_a , ... 'prefix:C' : v_c}``. The ``prefix``
+will be the currently specified default prefix, which is usually the
+name of the current knowledge base. If the query is not satisfiable,
+there will be nothing returned.
 
 Persistent
 ­­­­­­­­­­
@@ -52,8 +54,8 @@ Derived predicates are essentially *views* as in SQL. We can update
 views with a syntax very like the one used for changing ground facts,
 but which uses quoted source.
 
-Performance
-­­­­­­­­­­­
+Performance Oriented
+­­­­­­­­­­­­­­­­­­­­
 
 The goal of μDBug is to be a high-permance solution to knowledge
 stores which is flexible and allows more application logic to live in
@@ -67,6 +69,13 @@ language.
 Performance in μDBug is possible due to the following features, not
 often found in logic programming languages: 
 
+* Types 
+
+Unlike prolog, we have a strongly typed language that allows us to
+layout data in tables in an efficient manner. All types can be marked
+as indexible by providing a total order. This also enables the
+following feature to be checked automatically in some cases.
+
 * Determinacy and coverage
 
 Predicates can be checked to see if there are no (vacuous), none or
@@ -74,12 +83,6 @@ one (semidet), exactly one (det) or none or many (nondet). In the case
 of deterministic predicates, we check the coverage of the inputs on a
 given *mode*. Modes allow predicates to be called in various ways with
 various unknowns.
-
-* Types 
-
-Unlike prolog, we have a strongly typed language that allows us to
-layout data in tables in an efficient manner. All types can be marked
-as indexible by providing a total order.
 
 * Recursive
 
