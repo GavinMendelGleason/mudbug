@@ -1,5 +1,4 @@
-μDBug
-======
+# μDBug
 
 The μDBug (pronounced Mud-Bug, an eponym of the freshwater crustacean)
 is a logic database or knowledge store designed with modern
@@ -9,8 +8,7 @@ languages such as prolog and relational databases such as SQL. Naming
 and addressing is given by URIs allowing resources to be described
 across databases, and JSON is used as a universal interchange format.
 
-Typed 
-­­­­­
+## Typed 
 
 The language is *typed* using a variant of Hindley Milner polymorphic
 typing. This allows it to be used as a primary database storage
@@ -21,8 +19,7 @@ all of the standard SQL datatypes. This is then extended with
 *inductive* types which combine these types to create more complex
 elements.
 
-Logical
-­­­­­­­
+## Logical
 
 A μDBug *predicate* is the building block of the way we express
 relationships. A predicate ``p(A,B,...,C)`` expresses that the fact
@@ -33,8 +30,7 @@ will be the currently specified default prefix, which is usually the
 name of the current knowledge base. If the query is not satisfiable,
 there will be nothing returned.
 
-Persistent
-­­­­­­­­­­
+## Persistent
 
 The μDBug knowledge store is persistent and updatable. We can use it
 as a replacement for SQL as it is provides a superset of the
@@ -54,8 +50,7 @@ Derived predicates are essentially *views* as in SQL. We can update
 views with a syntax very like the one used for changing ground facts,
 but which uses quoted source.
 
-Performance Oriented
-­­­­­­­­­­­­­­­­­­­­
+## Performance Oriented
 
 The goal of μDBug is to be a high-permance solution to knowledge
 stores which is flexible and allows more application logic to live in
@@ -72,9 +67,9 @@ often found in logic programming languages:
 * Types 
 
 Unlike prolog, we have a strongly typed language that allows us to
-layout data in tables in an efficient manner. All types can be marked
+layout data in an efficient manner. All types can be marked
 as indexible by providing a total order. This also enables the
-following feature to be checked automatically in some cases.
+determinacy and coverage to be checked automatically in some cases.
 
 * Determinacy and coverage
 
